@@ -20,8 +20,9 @@ echo "sleep 10 seconds, wait for zookeeper and kafka startup"
 
 # Create topic
 echo "generate topic: $kafka_topic"
-response=$(bin/kafka-topics.sh --create --zookeeper $ZK_CONNECT --replication-factor 1 --partitions 1 --topic $kafka_topic)
+response=$($KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper $ZK_CONNECT --replication-factor 1 --partitions 1 --topic $kafka_topic)
 
+echo "response: $response"
 if [[ $response == *"already exists"* ]] || [[ $response == *"Created topic"* ]]
 then
   exit 0;
