@@ -17,7 +17,7 @@ RUN apt-get update && \
     rm /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz
 
 ADD scripts/start-kafka.sh /usr/bin/start-kafka.sh
-ADD scripts/create-iot-topic.sh /usr/bin/create-iot-topic.sh
+ADD scripts/create-kafka-topic.sh /usr/bin/create-kafka-topic.sh
 RUN chmod +x /usr/bin/*.sh
 
 # Supervisor config
